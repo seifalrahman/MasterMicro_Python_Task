@@ -38,18 +38,13 @@ def test_drawUserFunctions(exp1, exp2, resolution, expected_x_range, x):
     x_vals, y1, y2, points_to_annotate = result
 
     # Check x range
-    assert min(x_vals) >= expected_x_range[0]
-    assert max(x_vals) <= expected_x_range[1]
+    assert min(x_vals) == expected_x_range[0]
+    assert max(x_vals) == expected_x_range[1]
 
-    # Check outputs have correct resolution
-    # assert len(x_vals) == resolution*(expected_x_range[1]-expected_x_range[0])
-    # assert len(y1) == resolution*(expected_x_range[1]-expected_x_range[0])
-    # assert len(y2) == resolution*(expected_x_range[1]-expected_x_range[0])
 
-    # Check When Intersection points are infinite draw zero of them
 
     if exp1 == exp2:
-        assert 0 == 0
+        assert len(points_to_annotate) == 0
 
 
 # Test invalid inputs to drawUserFunctions
@@ -64,3 +59,6 @@ def test_drawUserFunctions(exp1, exp2, resolution, expected_x_range, x):
 def test_drawUserFunctions_exceptions(exp1, exp2, resolution):
     with pytest.raises((SympifyError, ValueError)):
         drawUserFunctions(exp1, exp2, resolution)
+
+
+
