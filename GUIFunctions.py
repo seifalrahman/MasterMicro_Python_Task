@@ -74,12 +74,8 @@ class Window (QMainWindow) :
         self.setInfo1()
         self.info2_button = None
         self.setInfo2()
-        # palette = QPalette()
-        # pixmap = QPixmap("C:\\MYCOMPUTER\\Leonardo_Phoenix_09_A_futuristic_and_minimalist_background_ima_1.jpg")
-        # scaled_pixmap = pixmap.scaled(self.size(), Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
-        # palette.setBrush(QPalette.Background, QBrush(scaled_pixmap))
-        # self.setPalette(palette)
-        self.background_image_path = "C:\\MYCOMPUTER\\Leonardo_Phoenix_09_A_futuristic_and_minimalist_background_ima_1.jpg"
+
+        self.background_image_path = "Background.jpg"
         self.set_background_image()
 
         self.txtbox1.textChanged.connect(self.check_inputs)
