@@ -18,12 +18,54 @@ def replace_log(expression):
     modified_expression = re.sub(r'log(\d+)\((.*?)\)', r'log(\2, \1)', expression)
     return modified_expression
 
+def insert_multiplication_operator(equation):
+    """
+    Replaces instances like '2x' with '2*x' in the equation.
+    Replaces instances like '2(x)' with '2*(x)' in the equation.
+    """
+
+    equation = re.sub(r"(\d+)([a-zA-Z])", r"\1*\2", equation)
+    equation = re.sub(r"(\d+)([(])", r"\1*\2", equation)
+    return equation
+
+initial_guesses=[]
+
+for i in range(1 , 1000,1) :
+    initial_guesses.append(i)
+
+def drawInfoFunctions (exp,Resolution):
+    x = Symbol('x')
+    expression=replace_log(exp)
+    expression=insert_multiplication_operator(expression)
+    expression= sympify(expression)
+    diffExp= diff(expression,x)
+    diffExp = lambdify(x, diffExp)
+    integratedExp = integrate(expression, x)
+    integratedExp = lambdify(x, integratedExp)
+    x_vals = list(np.linspace(-100, 100, Resolution))
+    y1=[]
+    y2=[]
+    for value in x_vals :
+        y1.append(diffExp(float(value)))
+        y2.append(integratedExp(float(value)))
+    return [x_vals,y1,y2]
+
+
+
+
+
+
+
+
+
 
 def drawUserFunctions (exp1, exp2,Resolution):
     x = Symbol('x')
     expression1=replace_log(exp1)
+    expression1 = insert_multiplication_operator(expression1)
     expression1= sympify(expression1)
     expression2=replace_log(exp2)
+    expression2 = insert_multiplication_operator(expression2)
     expression2 = sympify(expression2)
     intersection_eq = Eq(expression1, expression2)
     intersection_roots = solveset(intersection_eq,x,domain=S.Reals)# :  solve(intersection_eq, x)
@@ -33,15 +75,24 @@ def drawUserFunctions (exp1, exp2,Resolution):
         flag = 1
         intersection_roots = []
     elif not isinstance(intersection_roots, ConditionSet) :
-        intersection_roots = list(solveset(intersection_eq, x, domain=S.Reals))  # :  solve(intersection_eq, x)
+        intersection_roots=[]
+        tmp = solveset(intersection_eq, x, domain=S.Reals)  # :  solve(intersection_eq, x)
+        for r in tmp :
+            if r.is_real :
+                intersection_roots.append(r)
 
     else:
         intersection_roots = []
-        intersection_roots.append(nsolve(intersection_eq, x, 0.01))
+        for i in range(0,len(initial_guesses)):
+            guess= nsolve(intersection_eq, x, initial_guesses[i])
+            if guess.is_real :
+                intersection_roots.append(guess)
+
+        #intersection_roots.append(nsolve(intersection_eq, x, 0.01))
         flag=1
-        for root in intersection_roots:
-            if not root.is_real :
-                intersection_roots=[]
+        # for root in intersection_roots:
+        #     if not root.is_real :
+        #         intersection_roots=[]
 
     if expression1 ==zoo or expression2 ==zoo :
         raise ValueError
@@ -78,28 +129,6 @@ def drawUserFunctions (exp1, exp2,Resolution):
             points_to_annotate.append((float(root) , expression1(float(root))))
 
     return  [x_vals,y1,y2 , points_to_annotate]
-    # plt.figure(figsize=(8, 6))
-    # plt.plot(x_vals, y1)
-    # plt.plot(x_vals,y2)
-    # plt.title("Function Plot")
-    # plt.xlabel("x")
-    # plt.ylabel("y")
-    # plt.axhline(0, color='black', linewidth=0.5)
-    # plt.axvline(0, color='black', linewidth=0.5)
-    # plt.grid(color='gray', linestyle='--', linewidth=0.5)
-    # for point in points_to_annotate:
-    #     plt.annotate(
-    #         f"({point[0]}, {point[1]})",  # Annotation text
-    #         xy=point,  # Point to annotate
-    #         xytext=(point[0]+ 1, point[1] + 1),  # Position of text
-    #         textcoords='offset points',  # Text relative to point
-    #         arrowprops=dict(arrowstyle="->", color='blue'),  # Arrow properties
-    #         fontsize=10,
-    #         color='red'
-    #     )
-    # plt.legend()
-    # plt.show()
-
 
 
 
