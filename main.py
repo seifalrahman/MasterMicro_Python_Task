@@ -7,6 +7,7 @@ import sys
 if __name__ == '__main__':
 
     window = Window()
-    window.showFullScreen()
+    #window.showFullScreen()
+    window.show()
     myApp.exec_()
     sys.exit(0)
