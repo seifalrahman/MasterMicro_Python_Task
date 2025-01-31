@@ -1,7 +1,7 @@
 import pytest
 from sympy import S, Symbol
 from sympy.core.sympify import SympifyError
-from HelperFunctions import replace_log, drawUserFunctions  # Replace `your_module` with the file name of your module.
+from HelperFunctions import replace_log, drawUserFunctions , insert_multiplication_operator , drawInfoFunctions  # Replace `your_module` with the file name of your module.
 
 # Define a fixture for a symbolic variable
 @pytest.fixture
@@ -62,3 +62,50 @@ def test_drawUserFunctions_exceptions(exp1, exp2, resolution):
 
 
 
+@pytest.mark.parametrize(
+    "input_eq , expected_eq",
+    [
+        ("2x", "2*x"),
+        ("3(x + 1)", "3*(x + 1)"),
+        ("4y + 5z", "4*y + 5*z"),
+        ("6(x + y) + 7z", "6*(x + y) + 7*z"),
+        ("8(x)(y)", "8*(x)*(y)"),
+        ("9x + 10(y + z)", "9*x + 10*(y + z)"),
+        ("11(x + 2)(y + 3)", "11*(x + 2)*(y + 3)"),
+        ("12(xy)", "12*(xy)"),  # Should not change as xy is a single variable
+    ],
+
+)
+
+def test_insert_multiplication_operator(input_eq,expected_eq):
+    # Test cases for inserting multiplication operators
+    insert_multiplication_operator(input_eq) == expected_eq
+
+
+
+@pytest.mark.parametrize(
+    "exp , resolution",
+    [
+    ("x**2", 10),  # Simple polynomial
+    ("sin(x)", 10),  # Trigonometric function
+    ("log10(x)", 10),  # Logarithmic function
+    ("x**3 + 2*x**2 + x + 1", 10),  # Polynomial with multiple terms
+],
+)
+
+
+def test_drawInfoFunctions(exp ,resolution):
+    # Test cases for drawInfoFunctions
+
+
+    result = drawInfoFunctions(exp, resolution)
+    x_vals, y1, y2 = result
+
+    # Check that the length of x_vals, y1, and y2 matches the resolution
+    assert len(x_vals) == resolution
+    assert len(y1) == resolution
+    assert len(y2) == resolution
+
+    # Check that x_vals are within the expected range
+    assert min(x_vals) == -100
+    assert max(x_vals) == 100
