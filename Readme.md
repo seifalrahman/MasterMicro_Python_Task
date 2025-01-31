@@ -22,11 +22,10 @@ The Equation Solver Application is a powerful tool designed to solve various typ
         Testing :  Pytest 
                    Pytest-qt
 # Supported Operations :
-    logN (x) 
-    ---> Supported log  writing 
-
+    + - / * ^ log10() sqrt().
+        Note : You can write log operations in two ways  log10(x) and log(x,10)
 
 # Input violations :
 
 
-#  Test Results 
+#  Test Results : 
