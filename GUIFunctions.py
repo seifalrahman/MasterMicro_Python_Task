@@ -12,6 +12,7 @@ from PySide2.QtWidgets import QGridLayout,\
                             QSizePolicy
 
 from sympy import  Symbol , sympify,diff,integrate
+import random
 import sys
 from PySide2.QtGui import QIcon , QPalette, QBrush, QPixmap
 from HelperFunctions import drawUserFunctions ,drawInfoFunctions ,replace_log ,insert_multiplication_operator
@@ -227,11 +228,14 @@ class Window (QMainWindow) :
             sc.axes.plot(graph[0], graph[2])
 
             points_to_annotate=graph[3]
+            i =1
+
             for point in points_to_annotate :
+                print(point)
                 sc.axes.annotate(
                     f"({point[0]}, {point[1]})",  # Annotation text
                     xy=point,  # Point to annotate
-                    xytext=(point[0] + 1, point[1] + 1),  # Position of text
+                    xytext=(point[0] + random.randint(-10, 10), point[1] + random.randint(-20, 10)),  # Position of text
                     textcoords='offset points',  # Text relative to point
                     arrowprops=dict(arrowstyle="->", color='blue'),  # Arrow properties
                     fontsize=10,
@@ -307,7 +311,7 @@ class Window (QMainWindow) :
         """
         # Regular expression to allow numbers, 'x', basic math operators, and specific functions
         flag= True
-        valid_pattern = re.compile(r'^([0-9]+|x|[\+\-*/^()]|log\d+\(x\)|sin\(x\)|cos\(x\)|\s)+$')
+        valid_pattern = re.compile(r'^([0-9]+|x|[-+*/^()]|log\d*\(x\)|log\(x\)|sin\(x\)|cos\(x\)|\s)+$')
 
         # Validate txtbox1
         if not valid_pattern.match(self.txtbox1.text()):
@@ -327,7 +331,7 @@ class Window (QMainWindow) :
 
 
     def validate_input2(self):
-        valid_pattern = re.compile(r'^([0-9]+|x|[\+\-*/^()]|log\d+\(x\)|sin\(x\)|cos\(x\)|\s)+$')
+        valid_pattern = re.compile(r'^([0-9]+|x|[-+*/^()]|log\d*\(x\)|log\(x\)|sin\(x\)|cos\(x\)|\s)+$')
         flag=True
         # Validate txtbox2
         if not valid_pattern.match(self.txtbox2.text()):
