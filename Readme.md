@@ -39,9 +39,9 @@ The Equation Solver Application is a powerful tool designed to solve various typ
     Only 'x' variable is allowed 
         - Info Button is disabled if you entered another variable 
         - Warning appears If You tried to press Info while having illegal variables 
-        
+![image](https://github.com/user-attachments/assets/7676a71b-008b-4b0f-8055-f603f83ea49d)     
 ![image](https://github.com/user-attachments/assets/79fe2c96-a667-48d6-9748-4b4cd516f1b7)
-![image](https://github.com/user-attachments/assets/7676a71b-008b-4b0f-8055-f603f83ea49d)
+
 
 
 
