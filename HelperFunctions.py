@@ -34,7 +34,7 @@ def insert_multiplication_operator(equation):
 
 initial_guesses=[]
 
-for i in range(1 , 1000,1) :
+for i in range(1 , 2,1) :
     initial_guesses.append(i)
 
 def drawInfoFunctions (exp,Resolution):
