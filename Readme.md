@@ -46,8 +46,8 @@ The Equation Solver Application is a powerful tool designed to solve various typ
 
 
 # Logical Test Results 
-
-![image](https://github.com/user-attachments/assets/9bc00fde-56e2-4c45-96b1-985e367477cc)
+![image](https://github.com/user-attachments/assets/f2d512b0-b8ab-499b-82d7-95f9e393781a)
+![image](https://github.com/user-attachments/assets/c175b4cf-60ea-49c1-9e43-12f42a4eab7d)
 
 
 # Gui Test Results
