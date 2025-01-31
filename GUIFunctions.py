@@ -311,7 +311,7 @@ class Window (QMainWindow) :
         """
         # Regular expression to allow numbers, 'x', basic math operators, and specific functions
         flag= True
-        valid_pattern = re.compile(r'^([0-9]+|x|[-+*/^()]|log\d*\(x\)|log\(x\)|sin\(x\)|cos\(x\)|\s)+$')
+        valid_pattern = re.compile(r'^([0-9]+|x|[-+*/^()]|log\d*\(x\)|log\(x\)|sin\(x\)|cos\(x\)|sqrt\(x\)|\s)+$')
 
         # Validate txtbox1
         if not valid_pattern.match(self.txtbox1.text()):
@@ -331,7 +331,7 @@ class Window (QMainWindow) :
 
 
     def validate_input2(self):
-        valid_pattern = re.compile(r'^([0-9]+|x|[-+*/^()]|log\d*\(x\)|log\(x\)|sin\(x\)|cos\(x\)|\s)+$')
+        valid_pattern = re.compile(r'^([0-9]+|x|[-+*/^()]|log\d*\(x\)|log\(x\)|sin\(x\)|cos\(x\)|sqrt\(x\)|\s)+$')
         flag=True
         # Validate txtbox2
         if not valid_pattern.match(self.txtbox2.text()):
