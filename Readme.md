@@ -77,3 +77,5 @@ The Equation Solver Application is a powerful tool designed to solve various typ
 ![image](https://github.com/user-attachments/assets/2c57d346-3523-4a45-a119-38c83b2d67c1)
 
 
+
+# Note If Equation is to be solved numerically and only one solution is found while in fact it has larger number of solutions , this could be partially solved by providing more initial guesses
