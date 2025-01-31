@@ -57,6 +57,7 @@ The Equation Solver Application is a powerful tool designed to solve various typ
 ![image](https://github.com/user-attachments/assets/73262cbf-913a-439c-8ee2-7a2d9cf8f615)
 ![image](https://github.com/user-attachments/assets/303628f3-1159-47ff-9c35-bcdc58ade972)
 ![image](https://github.com/user-attachments/assets/84e4bd65-ea7c-4286-b98c-88cc107d06d3)
-The only not fully automated test
+#### The only not fully automated test
+
 ![image](https://github.com/user-attachments/assets/3c80bf21-fd1b-4dc2-b63b-0ca0ab5410c5)
 
