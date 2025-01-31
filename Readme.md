@@ -15,9 +15,9 @@ The Equation Solver Application is a powerful tool designed to solve various typ
     Get Solution points of two single variable Equations
     User-Friendly Interface: Simple and intuitive interface for easy input and output.
     The info Button gets the Differentiated equation and the  inegrated equation 
-     -> After pressing Info Button for both equations
+### After pressing Info Button for both equations
 ![image](https://github.com/user-attachments/assets/919d7b89-0bde-4d14-8b17-93816b851c67)
-    Solve Button gets the solution points and
+### Solve Button gets the solution points and
 ![image](https://github.com/user-attachments/assets/fd5db199-18ba-4ae4-b603-37007c951005)
 
 ## Technologies Used
