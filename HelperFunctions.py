@@ -24,8 +24,12 @@ def insert_multiplication_operator(equation):
     Replaces instances like '2(x)' with '2*(x)' in the equation.
     """
 
+
     equation = re.sub(r"(\d+)([a-zA-Z])", r"\1*\2", equation)
     equation = re.sub(r"(\d+)([(])", r"\1*\2", equation)
+    equation = re.sub(r"([)])([(])", r"\1*\2", equation)
+
+
     return equation
 
 initial_guesses=[]
@@ -129,6 +133,28 @@ def drawUserFunctions (exp1, exp2,Resolution):
             points_to_annotate.append((float(root) , expression1(float(root))))
 
     return  [x_vals,y1,y2 , points_to_annotate]
+    # plt.figure(figsize=(8, 6))
+    # plt.plot(x_vals, y1)
+    # plt.plot(x_vals,y2)
+    # plt.title("Function Plot")
+    # plt.xlabel("x")
+    # plt.ylabel("y")
+    # plt.axhline(0, color='black', linewidth=0.5)
+    # plt.axvline(0, color='black', linewidth=0.5)
+    # plt.grid(color='gray', linestyle='--', linewidth=0.5)
+    # for point in points_to_annotate:
+    #     plt.annotate(
+    #         f"({point[0]}, {point[1]})",  # Annotation text
+    #         xy=point,  # Point to annotate
+    #         xytext=(point[0]+ 1, point[1] + 1),  # Position of text
+    #         textcoords='offset points',  # Text relative to point
+    #         arrowprops=dict(arrowstyle="->", color='blue'),  # Arrow properties
+    #         fontsize=10,
+    #         color='red'
+    #     )
+    # plt.legend()
+    # plt.show()
+
 
 
 
