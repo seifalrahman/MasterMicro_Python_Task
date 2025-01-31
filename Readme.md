@@ -1,4 +1,4 @@
-# Equation Solver Application
+# Master Equation Solver Application
 Overview
 
 The Equation Solver Application is a powerful tool designed to solve various types of mathematical equations. Whether you're dealing with linear equations, quadratic equations, or systems of equations, this application provides an intuitive interface and accurate solutions.
