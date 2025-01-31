@@ -16,9 +16,9 @@ The Equation Solver Application is a powerful tool designed to solve various typ
     User-Friendly Interface: Simple and intuitive interface for easy input and output.
     The info Button gets the Differentiated equation and the  inegrated equation 
      -> After pressing Info Button for both equations
-    ![image](https://github.com/user-attachments/assets/919d7b89-0bde-4d14-8b17-93816b851c67)
+![image](https://github.com/user-attachments/assets/919d7b89-0bde-4d14-8b17-93816b851c67)
     Solve Button gets the solution points and
-    ![image](https://github.com/user-attachments/assets/fd5db199-18ba-4ae4-b603-37007c951005)
+![image](https://github.com/user-attachments/assets/fd5db199-18ba-4ae4-b603-37007c951005)
 
 ## Technologies Used
 
@@ -40,8 +40,8 @@ The Equation Solver Application is a powerful tool designed to solve various typ
         - Info Button is disabled if you entered another variable 
         - Warning appears If You tried to press Info while having illegal variables 
         
-    ![image](https://github.com/user-attachments/assets/79fe2c96-a667-48d6-9748-4b4cd516f1b7)
-    ![image](https://github.com/user-attachments/assets/7676a71b-008b-4b0f-8055-f603f83ea49d)
+![image](https://github.com/user-attachments/assets/79fe2c96-a667-48d6-9748-4b4cd516f1b7)
+![image](https://github.com/user-attachments/assets/7676a71b-008b-4b0f-8055-f603f83ea49d)
 
 
 
