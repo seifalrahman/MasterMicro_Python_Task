@@ -21,11 +21,15 @@ The Equation Solver Application is a powerful tool designed to solve various typ
         PySide2
         Testing :  Pytest 
                    Pytest-qt
-# Supported Operations :
+# Supported Operations 
     + - / * ^ log10() sqrt().
         Note : You can write log operations in two ways  log10(x) and log(x,10)
 
-# Input violations :
+# Input violations 
 
 
-#  Test Results : 
+# Logical Test Results 
+
+
+
+# Gui Test Results
